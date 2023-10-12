@@ -16,6 +16,11 @@ button {
   font-weight: 600;
   letter-spacing: 1.5px;
 }
+
+button img {
+  width: 20px;
+}
+
 button:hover {
   transform: scale(1.04);
   transition: all 0.4s ease-out;
