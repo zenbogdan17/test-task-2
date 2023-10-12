@@ -5,7 +5,7 @@ export interface CustomInputProps {
   setValue: (value: string) => void;
 }
 
-export interface CustomButtomProps {
+export interface CustomButtonProps {
   title: string;
   handlerClick: (id?: string) => void;
   styleProps?: {};

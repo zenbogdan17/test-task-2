@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from '../styles/Login.module.css';
-import CustomButtom from './CustomButtom';
+import CustomButton from './CustomButton';
 import CustomInput from './CustomInput';
 import { fetchUser, userloggedIn } from '../store/user/userSlice';
 import { useAppDispatch, useAppSelector } from '../store/hooks/hook';
@@ -57,7 +57,7 @@ const Login = () => {
           placeholder={'Enter password'}
         />
 
-        <CustomButtom title={'Send'} handlerClick={handleLogin} />
+        <CustomButton title={'Send'} handlerClick={handleLogin} />
       </section>
 
       {!isLogIn && (

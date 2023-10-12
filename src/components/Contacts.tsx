@@ -9,7 +9,7 @@ import {
   formReduser,
   setFitered,
 } from '../store/contact/contactsSlice';
-import CustomButtom from './CustomButtom';
+import CustomButton from './CustomButton';
 import { UserContats, initialStateContacts } from '../types/redux_type';
 import CustomInput from './CustomInput';
 import { handlerFilterContact } from '../utils';
@@ -90,7 +90,7 @@ const Contacts = () => {
                 )}
 
                 {editFormIsShow && id === idContactsThatEdit ? (
-                  <CustomButtom
+                  <CustomButton
                     title="Save"
                     handlerClick={() =>
                       dispatch(editContact({ id, editName, editPhone }))
@@ -98,11 +98,11 @@ const Contacts = () => {
                   />
                 ) : (
                   <>
-                    <CustomButtom
+                    <CustomButton
                       title="Edit"
                       handlerClick={() => dispatch(formReduser(id))}
                     />
-                    <CustomButtom
+                    <CustomButton
                       title="Delete"
                       handlerClick={() => hendlerDeletContact(id)}
                     />
@@ -117,7 +117,7 @@ const Contacts = () => {
           )}
           {filter !== '' && (
             <div>
-              <CustomButtom
+              <CustomButton
                 title={'Reset search filters'}
                 handlerClick={() => {
                   dispatch(setFitered(''));

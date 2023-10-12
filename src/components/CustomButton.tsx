@@ -1,12 +1,12 @@
-import { CustomButtomProps } from '../types';
-import style from '../styles/CustomButtom.module.css';
+import { CustomButtonProps } from '../types';
+import style from '../styles/CustomButton.module.css';
 import signOut from '../constant/signOut.png';
 
-const CustomButtom = ({
+const CustomButton = ({
   title,
   handlerClick,
   styleProps,
-}: CustomButtomProps) => {
+}: CustomButtonProps) => {
   return (
     <div className={style.container}>
       <button style={styleProps} onClick={() => handlerClick()}>
@@ -17,4 +17,4 @@ const CustomButtom = ({
   );
 };
 
-export default CustomButtom;
+export default CustomButton;

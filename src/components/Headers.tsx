@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import style from '../styles/Headers.module.css';
-import CustomButtom from './CustomButtom';
+import CustomButton from './CustomButton';
 import { fetchUser, signOutUser } from '../store/user/userSlice';
 import CustomInput from './CustomInput';
 import { setFitered } from '../store/contact/contactsSlice';
@@ -11,14 +11,14 @@ import { useAppDispatch, useAppSelector } from '../store/hooks/hook';
 const Headers = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const [searchValue, setsearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState('');
   const [isShowModal, setIsShowModal] = useState(false);
   const avatar = useAppSelector(({ user }) => user?.currentUser[0]?.avatar);
   const filter = useAppSelector(({ contacts }) => contacts.filter);
 
   useEffect(() => {
     dispatch(fetchUser());
-    setsearchValue(filter);
+    setSearchValue(filter);
   }, [filter, dispatch]);
 
   const handlerSignOut = () => {
@@ -52,10 +52,10 @@ const Headers = () => {
             type="text"
             placeholder="Enter contact"
             value={searchValue}
-            setValue={setsearchValue}
+            setValue={setSearchValue}
           />
 
-          <CustomButtom
+          <CustomButton
             title="Search"
             handlerClick={handlerSearchContact}
             styleProps={{ fontSize: '15px', padding: '5px' }}
@@ -63,7 +63,7 @@ const Headers = () => {
         </div>
 
         <div className={style.btns}>
-          <CustomButtom
+          <CustomButton
             styleProps={{
               border: 'solid 1px var(--white)',
               backgroundColor: 'var(--bg)',
@@ -71,7 +71,7 @@ const Headers = () => {
             title="Add contact"
             handlerClick={handlerShowModal}
           />
-          <CustomButtom title="Sign out" handlerClick={handlerSignOut} />
+          <CustomButton title="Sign out" handlerClick={handlerSignOut} />
         </div>
       </div>
     </>

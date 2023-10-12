@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import style from '../styles/Modal.module.css';
 import { ModuleProps } from '../types';
-import CustomButtom from './CustomButtom';
+import CustomButton from './CustomButton';
 import CustomInput from './CustomInput';
 import { addContact } from '../store/contact/contactsSlice';
 import { useAppDispatch } from '../store/hooks/hook';
@@ -28,7 +28,7 @@ const AddContactModal = ({ isShowModal, setIsShowModal }: ModuleProps) => {
       <div className={style.modal_overlay}>
         <div className={style.modal}>
           <div className={style.closeModal}>
-            <CustomButtom
+            <CustomButton
               title="✖️"
               handlerClick={handlerShowModal}
               styleProps={{
@@ -53,7 +53,7 @@ const AddContactModal = ({ isShowModal, setIsShowModal }: ModuleProps) => {
             setValue={setPhone}
           />
 
-          <CustomButtom title="Add" handlerClick={handlerAddConatct} />
+          <CustomButton title="Add" handlerClick={handlerAddConatct} />
         </div>
       </div>
     )
