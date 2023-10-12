@@ -24,13 +24,31 @@ h3 {
 .hint {
   position: fixed;
   color: var(--grey);
-  font-size: 12px;
+  font-size: 20px;
   left: 15px;
   bottom: 15px;
 }
 
 .hint span {
   color: var(--light);
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .section {
+    width: 90vw;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    justify-content: space-around;
+  }
+
+  .section {
+    width: 400px;
+    font-size: 24px;
+  }
 }

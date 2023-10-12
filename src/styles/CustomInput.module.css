@@ -11,3 +11,9 @@ input {
   width: 100%;
   font-size: 18px;
 }
+
+@media (max-width: 769px) {
+  input {
+    font-size: 14px;
+  }
+}

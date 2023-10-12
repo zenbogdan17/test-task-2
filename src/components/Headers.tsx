@@ -58,7 +58,7 @@ const Headers = () => {
           <CustomButtom
             title="Search"
             handlerClick={handlerSearchContact}
-            styleProps={{ fontSize: '16px', padding: '5px' }}
+            styleProps={{ fontSize: '15px', padding: '5px' }}
           />
         </div>
 
@@ -68,7 +68,7 @@ const Headers = () => {
               border: 'solid 1px var(--white)',
               backgroundColor: 'var(--bg)',
             }}
-            title="Add a contact"
+            title="Add contact"
             handlerClick={handlerShowModal}
           />
           <CustomButtom title="Sign out" handlerClick={handlerSignOut} />

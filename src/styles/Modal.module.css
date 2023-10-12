@@ -30,3 +30,14 @@
   top: 10px;
   z-index: 10;
 }
+
+@media (max-width: 1470px) {
+  .modal {
+    width: 40vw;
+  }
+}
+@media (max-width: 1024px) {
+  .modal h3 {
+    font-size: 16px;
+  }
+}

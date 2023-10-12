@@ -32,3 +32,21 @@
   display: flex;
   gap: 20px;
 }
+
+@media (max-width: 729px) {
+  .userInfo {
+    display: none;
+  }
+
+  .header {
+    height: 80px;
+  }
+
+  .search {
+    gap: 5px;
+  }
+
+  .btns {
+    gap: 10px;
+  }
+}
