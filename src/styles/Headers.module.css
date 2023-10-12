@@ -1,0 +1,34 @@
+.header {
+  height: 12vh;
+  background-color: var(--dark);
+  box-shadow: 2px 2px 3px var(--dark);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  position: fixed;
+  width: 100vw;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+}
+
+.userInfo img {
+  border-radius: 50%;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.search {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.btns {
+  display: flex;
+  gap: 20px;
+}

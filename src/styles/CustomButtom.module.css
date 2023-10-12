@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: center;
+  transition: all 0.4s ease-out;
+}
+
+button {
+  border: none;
+  padding: 10px 15px;
+  background-color: var(--violet-dark);
+  border-radius: 5px;
+  box-shadow: 2px 1px 5px var(--dark);
+  cursor: pointer;
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+button:hover {
+  transform: scale(1.04);
+  transition: all 0.4s ease-out;
+}
