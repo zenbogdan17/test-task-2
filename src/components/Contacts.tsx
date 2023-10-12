@@ -63,7 +63,7 @@ const Contacts = () => {
         <div className={style.wrapper}>
           <h2 className={style.title}>Your Contacts</h2>
 
-          {filter === '' && allContact.length >= 1 ? (
+          {allContact.length >= 1 ? (
             allContact.map(({ name, avatar, phone, id }) => (
               <div key={id} className={style.contact}>
                 <img className={style.avatar} src={avatar} alt="avatar" />
@@ -113,6 +113,10 @@ const Contacts = () => {
           ) : (
             <div className={style.notFound}>
               <h2>Contacts not found</h2>
+            </div>
+          )}
+          {filter !== '' && (
+            <div>
               <CustomButtom
                 title={'Reset search filters'}
                 handlerClick={() => {

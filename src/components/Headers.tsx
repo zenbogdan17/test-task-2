@@ -14,10 +14,12 @@ const Headers = () => {
   const [searchValue, setsearchValue] = useState('');
   const [isShowModal, setIsShowModal] = useState(false);
   const avatar = useAppSelector(({ user }) => user?.currentUser[0]?.avatar);
+  const filter = useAppSelector(({ contacts }) => contacts.filter);
 
   useEffect(() => {
     dispatch(fetchUser());
-  }, [dispatch]);
+    setsearchValue(filter);
+  }, [filter, dispatch]);
 
   const handlerSignOut = () => {
     dispatch(signOutUser());
@@ -30,8 +32,6 @@ const Headers = () => {
 
   const handlerSearchContact = () => {
     dispatch(setFitered(searchValue));
-
-    setsearchValue('');
   };
 
   return (

@@ -26,12 +26,9 @@ const Login = () => {
       return alert('Enter your password and login');
     }
 
-    let isCorrect = false;
-
     for (let i = 0; i < allUser.length; i++) {
       if (allUser[i].name === login && allUser[i].password === password) {
         dispatch(userloggedIn(allUser[i].name));
-        isCorrect = true;
       }
     }
 
