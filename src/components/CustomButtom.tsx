@@ -8,7 +8,7 @@ const CustomButtom = ({
 }: CustomButtomProps) => {
   return (
     <div className={style.container}>
-      <button style={styleProps} onClick={handlerClick}>
+      <button style={styleProps} onClick={() => handlerClick()}>
         {title}
       </button>
     </div>
