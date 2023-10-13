@@ -1,26 +1,26 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { URLforGetContacts } from '../../constant/constant';
-import { initialStateContacts, UserContats } from '../../types/redux_type';
+import { initialStateContacts, UserContacts } from '../../types/redux_type';
 
-export const fetchContacts = createAsyncThunk<UserContats[], void>(
+export const fetchContacts = createAsyncThunk<UserContacts[], void>(
   'contacts/fetchContacts ',
   async () => {
     const response = await axios.get(URLforGetContacts);
-    return response.data as UserContats[];
+    return response.data as UserContacts[];
   }
 );
 
-export const deleteContacts = createAsyncThunk<UserContats, string>(
+export const deleteContacts = createAsyncThunk<UserContacts, string>(
   'contacts/deleteContacts ',
   async (id) => {
     const response = await axios.delete(`${URLforGetContacts}/${id}`);
-    return response.data as UserContats;
+    return response.data as UserContacts;
   }
 );
 
 export const editContact = createAsyncThunk<
-  UserContats,
+  UserContacts,
   {
     id: string;
     editName: string;
@@ -38,11 +38,11 @@ export const editContact = createAsyncThunk<
     }
   );
 
-  return response.data as UserContats;
+  return response.data as UserContacts;
 });
 
 export const addContact = createAsyncThunk<
-  UserContats,
+  UserContacts,
   { name: string; phone: string }
 >(
   'contacts/addContact',
@@ -58,7 +58,7 @@ export const addContact = createAsyncThunk<
       }
     );
 
-    return response.data as UserContats;
+    return response.data as UserContacts;
   }
 );
 

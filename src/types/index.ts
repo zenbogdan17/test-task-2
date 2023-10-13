@@ -3,6 +3,7 @@ export interface CustomInputProps {
   placeholder: string;
   value: string | number;
   setValue: (value: string) => void;
+  error?: { status: boolean; message: string };
 }
 
 export interface CustomButtonProps {

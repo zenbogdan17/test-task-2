@@ -7,13 +7,14 @@ import CustomInput from './CustomInput';
 import { setFitered } from '../store/contact/contactsSlice';
 import AddContactModal from './Modal';
 import { useAppDispatch, useAppSelector } from '../store/hooks/hook';
+import avatar from '../../img/avatar.png';
 
 const Headers = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
   const [isShowModal, setIsShowModal] = useState(false);
-  const avatar = useAppSelector(({ user }) => user?.currentUser[0]?.avatar);
+  const avatarUser = useAppSelector(({ user }) => user?.currentUser[0]?.avatar);
   const filter = useAppSelector(({ contacts }) => contacts.filter);
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const Headers = () => {
 
       <div className={style.header}>
         <div className={style.userInfo}>
-          <img src={avatar} alt="avatarUser" />
+          <img src={avatarUser || avatar} alt="avatarUser" />
           <h2>{localStorage.getItem('userName')}</h2>
         </div>
 

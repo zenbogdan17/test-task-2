@@ -10,7 +10,7 @@ import {
   setFitered,
 } from '../store/contact/contactsSlice';
 import CustomButton from './CustomButton';
-import { UserContats, initialStateContacts } from '../types/redux_type';
+import { UserContacts, initialStateContacts } from '../types/redux_type';
 import CustomInput from './CustomInput';
 import { handlerFilterContact } from '../utils';
 
@@ -30,7 +30,7 @@ const Contacts = () => {
 
   useEffect(() => {
     if (idContactsThatEdit !== '') {
-      const foundContact: UserContats | undefined = contacts.find(
+      const foundContact: UserContacts | undefined = contacts.find(
         (item) => item.id === idContactsThatEdit
       );
 

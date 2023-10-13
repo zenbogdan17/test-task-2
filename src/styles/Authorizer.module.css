@@ -35,6 +35,13 @@ h3 {
   font-weight: bold;
 }
 
+.supportingText {
+  color: var(--grey);
+  font-size: 18px;
+  margin-top: 20px;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .section {
     width: 90vw;
@@ -42,11 +49,13 @@ h3 {
   }
 }
 
-@media (min-width: 769px) {
+@media (max-width: 769px) {
   .container {
     justify-content: space-around;
   }
-
+  .supportingText {
+    font-size: 14px;
+  }
   .section {
     width: 400px;
     font-size: 24px;

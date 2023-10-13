@@ -1,6 +1,6 @@
 import { CustomButtonProps } from '../types';
 import style from '../styles/CustomButton.module.css';
-import signOut from '../constant/signOut.png';
+import signOut from '../../img/signOut.png';
 
 const CustomButton = ({
   title,

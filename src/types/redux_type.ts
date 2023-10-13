@@ -1,4 +1,4 @@
-export interface UserContats {
+export interface UserContacts {
   name: string;
   avatar: string;
   phone: string;
@@ -10,6 +10,7 @@ export interface CurrentUser {
   avatar: string;
   password: string;
   id: string;
+  phone: string;
 }
 
 export interface initialStateUser {
@@ -21,7 +22,7 @@ export interface initialStateUser {
 }
 
 export interface initialStateContacts {
-  contacts: UserContats[] | [];
+  contacts: UserContacts[] | [];
   loading: boolean;
   error: string | null | undefined;
   isLogin: boolean;

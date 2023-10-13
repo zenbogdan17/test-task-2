@@ -15,7 +15,7 @@ const AddContactModal = ({ isShowModal, setIsShowModal }: ModuleProps) => {
     setIsShowModal(!isShowModal);
   };
 
-  const handlerAddConatct = () => {
+  const handlerAddContacts = () => {
     dispatch(addContact({ name, phone }));
 
     setName('');
@@ -53,7 +53,7 @@ const AddContactModal = ({ isShowModal, setIsShowModal }: ModuleProps) => {
             setValue={setPhone}
           />
 
-          <CustomButton title="Add" handlerClick={handlerAddConatct} />
+          <CustomButton title="Add" handlerClick={handlerAddContacts} />
         </div>
       </div>
     )

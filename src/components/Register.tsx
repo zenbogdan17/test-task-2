@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import style from '../styles/Authorizer.module.css';
 import CustomButton from './CustomButton';
 import CustomInput from './CustomInput';
-import { fetchUser, userlogin } from '../store/user/userSlice';
+import { registerUser, userlogin } from '../store/user/userSlice';
 import { useAppDispatch, useAppSelector } from '../store/hooks/hook';
 
-const Login = () => {
+const Register = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [errorName, setErrorName] = useState({ status: false, message: '' });
@@ -15,13 +15,9 @@ const Login = () => {
     message: '',
   });
 
-  const allUser = useAppSelector(({ user }) => user?.currentUser);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    dispatch(fetchUser());
-  }, [dispatch]);
+  const error = useAppSelector(({ user }) => user.error);
 
   const handleLogin = () => {
     if (!name || !password) {
@@ -44,16 +40,14 @@ const Login = () => {
       return;
     }
 
-    let isCorrect = false;
+    dispatch(registerUser({ name, password }));
+    dispatch(userlogin(name));
 
-    for (let i = 0; i < allUser.length; i++) {
-      if (allUser[i].name === name && allUser[i].password === password) {
-        dispatch(userlogin(allUser[i].name));
-        isCorrect = true;
-      }
+    if (error) {
+      return alert('Error...');
     }
 
-    isCorrect && navigate('/contact');
+    navigate('/contact');
 
     setName('');
     setPassword('');
@@ -62,7 +56,7 @@ const Login = () => {
   return (
     <div className={style.container}>
       <section className={style.section}>
-        <h3>Login</h3>
+        <h3>Register</h3>
 
         <CustomInput
           error={errorName}
@@ -71,6 +65,7 @@ const Login = () => {
           type={'string'}
           placeholder={'Enter name'}
         />
+
         <CustomInput
           error={errorPassword}
           value={password}
@@ -82,11 +77,11 @@ const Login = () => {
         <CustomButton title={'Send'} handlerClick={handleLogin} />
 
         <div className={style.supportingText}>
-          If you do not have an account, <Link to={'/register'}>register</Link>
+          If you have account, <Link to={'/login'}>log in</Link>
         </div>
       </section>
     </div>
   );
 };
 
-export default Login;
+export default Register;

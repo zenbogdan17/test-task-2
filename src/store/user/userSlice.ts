@@ -11,6 +11,25 @@ export const fetchUser = createAsyncThunk<CurrentUser[], void>(
   }
 );
 
+export const registerUser = createAsyncThunk<
+  CurrentUser[],
+  { name: string; password: string }
+>('user/registerUser', async ({ name, password }) => {
+  console.log(JSON.stringify({ name, password }));
+  const response = await axios.post(
+    `${URLforGetUser}`,
+
+    JSON.stringify({ name, password }),
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+
+  return response.data as CurrentUser[];
+});
+
 const initialState: initialStateUser = {
   currentUser: [],
   nameUser: '',
@@ -23,7 +42,7 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    userloggedIn: (state, { payload }: PayloadAction<string>) => {
+    userlogin: (state, { payload }: PayloadAction<string>) => {
       state.nameUser = payload;
       localStorage.setItem('userIsLogIn', 'true');
       localStorage.setItem('userName', payload.toString());
@@ -52,10 +71,23 @@ const userSlice = createSlice({
       .addCase(fetchUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
+      })
+      .addCase(registerUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(registerUser.fulfilled, (state, { payload }) => {
+        console.log(payload);
+        state.loading = false;
+        state.currentUser = payload;
+      })
+      .addCase(registerUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
       });
   },
 });
 
-export const { userloggedIn, userIsLogIn, signOutUser } = userSlice.actions;
+export const { userlogin, userIsLogIn, signOutUser } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -6,16 +6,20 @@ const CustomInput = ({
   placeholder,
   value,
   setValue,
+  error,
 }: CustomInputProps) => {
   return (
     <>
       <div className={style.container}>
         <input
+          className={error?.status ? style.inputError : ''}
           value={value}
           onChange={(e) => setValue(e.target.value)}
           type={type}
           placeholder={placeholder}
         />
+
+        <p className={style.errorMessage}>{error?.message}</p>
       </div>
     </>
   );

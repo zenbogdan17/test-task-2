@@ -5,6 +5,7 @@ import { userIsLogIn } from './store/user/userSlice';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Contacts from './components/Contacts';
 import { useAppDispatch } from './store/hooks/hook';
+import Register from './components/Register';
 
 function App() {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ function App() {
     <div className={style.app}>
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contacts />} />
       </Routes>
     </div>
