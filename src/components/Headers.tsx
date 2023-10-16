@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import style from '../styles/Headers.module.css';
 import CustomButton from './CustomButton';
 import { fetchUser, signOutUser } from '../store/user/userSlice';
@@ -43,10 +43,13 @@ const Headers = () => {
       />
 
       <div className={style.header}>
-        <div className={style.userInfo}>
-          <img src={avatarUser || avatar} alt="avatarUser" />
-          <h2>{localStorage.getItem('userName')}</h2>
-        </div>
+        <Link to={'/profile'}>
+          <div className={style.userInfo}>
+            <img src={avatarUser || avatar} alt="avatarUser" />
+
+            <h2>{localStorage.getItem('userName')}</h2>
+          </div>
+        </Link>
 
         <div className={style.search}>
           <CustomInput

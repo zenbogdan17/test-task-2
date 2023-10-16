@@ -1,6 +1,6 @@
 export interface CustomInputProps {
   type: string;
-  placeholder: string;
+  placeholder?: string;
   value: string | number;
   setValue: (value: string) => void;
   error?: { status: boolean; message: string };

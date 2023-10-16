@@ -11,6 +11,7 @@ export interface CurrentUser {
   password: string;
   id: string;
   phone: string;
+  description: string;
 }
 
 export interface initialStateUser {

@@ -6,6 +6,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import Contacts from './components/Contacts';
 import { useAppDispatch } from './store/hooks/hook';
 import Register from './components/Register';
+import Profile from './components/Profile';
 
 function App() {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contacts />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>
   );

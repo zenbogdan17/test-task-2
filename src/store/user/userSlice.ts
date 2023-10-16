@@ -15,7 +15,6 @@ export const registerUser = createAsyncThunk<
   CurrentUser[],
   { name: string; password: string }
 >('user/registerUser', async ({ name, password }) => {
-  console.log(JSON.stringify({ name, password }));
   const response = await axios.post(
     `${URLforGetUser}`,
 
@@ -28,6 +27,30 @@ export const registerUser = createAsyncThunk<
   );
 
   return response.data as CurrentUser[];
+});
+
+export const editUser = createAsyncThunk<
+  CurrentUser,
+  {
+    id: string;
+    name: string;
+    phone: string;
+    password: string;
+    description: string;
+  }
+>('contacts/editUser', async ({ id, name, phone, password, description }) => {
+  const response = await axios.put(
+    `${URLforGetUser}/${id}`,
+
+    JSON.stringify({ id, name, phone, password, description }),
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+  );
+
+  return response.data as CurrentUser;
 });
 
 const initialState: initialStateUser = {
@@ -65,7 +88,6 @@ const userSlice = createSlice({
       })
       .addCase(fetchUser.fulfilled, (state, { payload }) => {
         state.loading = false;
-
         state.currentUser = payload;
       })
       .addCase(fetchUser.rejected, (state, action) => {
@@ -77,11 +99,24 @@ const userSlice = createSlice({
         state.error = null;
       })
       .addCase(registerUser.fulfilled, (state, { payload }) => {
-        console.log(payload);
         state.loading = false;
         state.currentUser = payload;
       })
       .addCase(registerUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(editUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(editUser.fulfilled, (state, { payload }) => {
+        state.nameUser = payload.name;
+        localStorage.setItem('userName', payload.name);
+        state.loading = false;
+        state.currentUser = [...state.currentUser, payload];
+      })
+      .addCase(editUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });
