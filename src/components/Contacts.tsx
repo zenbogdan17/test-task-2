@@ -13,6 +13,7 @@ import CustomButton from './CustomButton';
 import { UserContacts, initialStateContacts } from '../types/redux_type';
 import CustomInput from './CustomInput';
 import { handlerFilterContact } from '../utils';
+import { fetchUser } from '../store/user/userSlice';
 
 const Contacts = () => {
   const dispatch = useAppDispatch();
@@ -45,6 +46,7 @@ const Contacts = () => {
   }, [idContactsThatEdit, contacts]);
 
   useEffect(() => {
+    dispatch(fetchUser());
     dispatch(fetchContacts());
   }, [dispatch]);
 
