@@ -62,12 +62,15 @@
   }
 
   .contact {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
-    grid-template-columns: 10% 25% 25% 20% 20%;
+    grid-template-columns: 10% 20% 30% 20% 20%;
     margin: 10px 0;
   }
 
+  .contact p {
+    font-size: 14px;
+  }
   .avatar {
     border-radius: 50%;
     width: 30px;

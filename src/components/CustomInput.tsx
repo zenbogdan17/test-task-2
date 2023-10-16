@@ -11,13 +11,22 @@ const CustomInput = ({
   return (
     <>
       <div className={style.container}>
-        <input
-          className={error?.status ? style.inputError : ''}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          type={type}
-          placeholder={placeholder}
-        />
+        {type !== 'textArea' ? (
+          <input
+            className={error?.status ? style.inputError : ''}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            type={type}
+            placeholder={placeholder}
+          />
+        ) : (
+          <textarea
+            className={error?.status ? style.inputError : ''}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            placeholder={placeholder}
+          />
+        )}
 
         <p className={style.errorMessage}>{error?.message}</p>
       </div>

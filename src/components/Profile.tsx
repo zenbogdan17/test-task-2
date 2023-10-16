@@ -56,14 +56,13 @@ const Profile = () => {
   return (
     <>
       <header className={style.header}>
-        <h1 className={style.title}>Profile</h1>
         <div className={style.btnLink}>
           <CustomButton
             title={'◀ Contacts'}
             handlerClick={() => navigate('/contact')}
           />
         </div>
-
+        <h1 className={style.title}>Profile</h1>
         <div className={style.btnSignOut}>
           <CustomButton title={'Sign out'} handlerClick={handlerSignOut} />
         </div>
@@ -114,7 +113,7 @@ const Profile = () => {
             <h2 className={style.userData}>{currentUser?.description}</h2>
           ) : (
             <CustomInput
-              type="text"
+              type="textArea"
               value={changesDescription}
               setValue={setChangesDescription}
             />

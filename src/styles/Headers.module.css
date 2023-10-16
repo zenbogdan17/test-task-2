@@ -33,11 +33,13 @@
   gap: 20px;
 }
 
-@media (max-width: 729px) {
-  .userInfo {
+@media (max-width: 1020px) {
+  .userInfo h2 {
     display: none;
   }
+}
 
+@media (max-width: 729px) {
   .header {
     height: 80px;
   }

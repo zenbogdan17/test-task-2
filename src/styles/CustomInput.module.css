@@ -12,6 +12,17 @@ input {
   font-size: 18px;
 }
 
+textarea {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--bg);
+  width: 100%;
+  font-size: 18px;
+  resize: none;
+}
+
 .inputError {
   border: 1px solid var(--error);
 }
