@@ -1,7 +1,7 @@
-import { UserContats } from '../types/redux_type';
+import { UserContacts } from '../types/redux_type';
 
 export const handlerFilterContact = (
-  contacts: UserContats[],
+  contacts: UserContacts[],
   filter: string
 ) => {
   const normalizedFilter = filter.toLowerCase().replace(/\s+/g, '');
